@@ -1,0 +1,8 @@
+com/pingdum/mongo/MongoManaged.class
+com/pingdum/requestResources/MakeRequest.class
+com/pingdum/app/PingdumResource.class
+com/pingdum/app/PingdumConfiguration.class
+com/pingdum/app/PingdumApp.class
+com/pingdum/mongo/MongoHealthCheck.class
+com/pingdum/models/Status.class
+com/pingdum/requestResources/RequestService.class
