@@ -1,6 +1,7 @@
 package com.pingdum.app;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -25,4 +26,8 @@ public class PingdumResource {
         return makeRequest.getStatus();
     }
 
+    @POST
+    public Status test2() throws IOException {
+        return makeRequest.getStatus();
+    }
 }

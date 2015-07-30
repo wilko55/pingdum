@@ -1,4 +1,5 @@
 package com.pingdum.app;
+import com.mongodb.*;
 import com.pingdum.mongo.MongoHealthCheck;
 import com.pingdum.mongo.MongoManaged;
 import com.pingdum.requestResources.MakeRequest;
@@ -6,15 +7,12 @@ import com.pingdum.requestResources.RequestService;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.Mongo;
-import com.mongodb.DB;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
 
 import java.net.UnknownHostException;
+import java.util.List;
+import java.util.Set;
 
 public class PingdumApp extends Application<PingdumConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -36,10 +34,19 @@ public class PingdumApp extends Application<PingdumConfiguration> {
         PingdumResource pingdumResource = new PingdumResource(makeRequest);
         environment.jersey().register(pingdumResource);
 
-        Mongo mongo = new Mongo(config.mongohost, config.mongoport);
+        String dbName = new String("bank");
+        Mongo mongo = new MongoClient(config.mongohost, config.mongoport);
+        Morphia morphia = new Morphia();
+        Datastore datastore = morphia.createDatastore((MongoClient) mongo, defaultUrl);
+
         MongoManaged mongoManaged = new MongoManaged(mongo);
         environment.lifecycle().manage(mongoManaged);
 
+        morphia.mapPackage("com.pingdum.entity");
+
         environment.healthChecks().register("mongo", new MongoHealthCheck(mongo));
+
+        datastore.ensureIndexes();
+
     }
 }

@@ -11,6 +11,7 @@ public class PingdumConfiguration extends Configuration {
     @NotEmpty
     @JsonProperty
     private String defaultUrl;
+
     @JsonProperty
     private int statusCode;
 
