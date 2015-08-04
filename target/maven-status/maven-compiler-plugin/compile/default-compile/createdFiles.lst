@@ -5,4 +5,3 @@ com/pingdum/resources/PingdumResource.class
 com/pingdum/app/PingdumApp.class
 com/pingdum/mongo/MongoHealthCheck.class
 com/pingdum/models/Status.class
-com/pingdum/requestResources/RequestService.class

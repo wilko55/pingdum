@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class MakeRequest {
 
-    private final RequestService requestService;
+    private final HttpRequestService httpRequestService;
 
-    public MakeRequest(RequestService requestService, Morphia morphia, DB db) {
+    public MakeRequest(HttpRequestService httpRequestService, Morphia morphia, DB db) {
 
-        this.requestService = requestService;
+        this.httpRequestService = httpRequestService;
         this.morphia = morphia;
         this.db = db;
     }
@@ -23,7 +23,7 @@ public class MakeRequest {
     public Status getStatus() throws IOException {
 
         // create new status object from makeRequest
-         Status status = new Status(requestService.makeRequest());
+         Status status = new Status(httpRequestService.makeRequest());
 
         // map the status model to a Mongo DBObject
         DBObject statusDBObject = morphia.toDBObject(status);
@@ -31,7 +31,7 @@ public class MakeRequest {
         // save to db
         db.getCollection("status").save(statusDBObject);
 
-        return new Status(requestService.makeRequest());
+        return new Status(httpRequestService.makeRequest());
     }
 }
 

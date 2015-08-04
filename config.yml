@@ -1,1 +1,3 @@
 defaultUrl: http://www.google.com
+server:
+  rootPath: '/api/*'

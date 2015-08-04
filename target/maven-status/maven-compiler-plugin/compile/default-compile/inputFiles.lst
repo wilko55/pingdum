@@ -1,8 +1,8 @@
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/requestResources/MakeRequest.java
-/Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/requestResources/RequestService.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/mongo/MongoHealthCheck.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/mongo/MongoManaged.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/resources/PingdumResource.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/app/PingdumApp.java
+/Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/requestResources/HttpRequestService.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/models/Status.java
 /Users/awilkinson/Documents/pingdum/src/main/java/com/pingdum/app/PingdumConfiguration.java
