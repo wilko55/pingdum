@@ -26,4 +26,11 @@ pingdumApp.controller('MainController', function($scope){
 pingdumApp.controller('StatusController', ['$scope', '$routeParams',
     function($scope, $routeParams) {
         $scope.name = $routeParams.api;
+        $scope.weekData = [
+            {time:'2015-08-05 10:55:12', httpCode:'200'},
+            {time:'2015-08-04 10:55:12', httpCode:'400'},
+            {time:'2015-08-03 10:55:12', httpCode:'200'},
+            {time:'2015-08-02 10:55:12', httpCode:'500'},
+            {time:'2015-08-01 10:55:12', httpCode:'200'},
+        ]
     }]);

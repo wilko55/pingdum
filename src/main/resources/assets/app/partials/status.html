@@ -1,4 +1,16 @@
 <div class="container">
     <h2>{{ name }} Status info!!</h2>
-    <a href="#/">Home!</a>
 </div>
+</br>
+<table class="table">
+    <tr>
+    <th>Timestamp</th>
+    <th>Http code</th>
+    </tr>
+    <tbody>
+    <tr ng-repeat="data in weekData">
+        <td>{{ data.time}}</td>
+        <td>{{ data.httpCode }}</td>
+    </tr>
+    </tbody>
+</table>
