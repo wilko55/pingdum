@@ -1,14 +1,12 @@
 package com.pingdum.resources;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-
-import com.mongodb.DB;
-import com.mongodb.Mongo;
 import com.pingdum.models.Status;
 import com.pingdum.requestResources.MakeRequest;
-import org.mongodb.morphia.Morphia;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
 @Path("/")

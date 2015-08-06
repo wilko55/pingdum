@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="col-md-8"><h3>API name</h3></div>
+    <div class="col-md-8"><h3>API ID</h3></div>
     <div class="col-md-4"><h3>Current status</h3></div>
 </div>
 <div class="container">
-    <div class="panel panel-default" data-ng-repeat="data in statusData | orderBy:api">
-        <div class="panel-body _{{data.status}}">
-            <div class="col-md-8"><a href="#/status/{{data.api}}">{{ data.api }}</a></div>
-            <div class="col-md-4">{{ data.status }}</div>
+    <!--<div class="panel panel-default" data-ng-repeat="data in statusData | orderBy:api">-->
+        <div class="panel-body _{{statusData.status}}">
+            <div class="col-md-8"><a href="#/status/{{statusData.siteId}}">{{ statusData.siteId }}</a></div>
+            <div class="col-md-4">{{ statusData.status }}</div>
         </div>
-    </div>
+    <!--</div>-->
 </div>
