@@ -1,3 +1,7 @@
+.codeBox {
+
+}
+
 ._200 {
     background-color: #8CFFA2;
 }
@@ -8,4 +12,10 @@
 
 ._404 {
     background-color: #FBFF9A;
+}
+
+.statusBox {
+    border: solid 1px #D0D1E3;
+    border-radius: 10px;
+    background-color: #ABCDE3;
 }

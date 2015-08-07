@@ -16,21 +16,12 @@ public class PingdumConfiguration extends Configuration {
     private int statusCode;
 
     @JsonProperty
-    public int getStatusCode() { return statusCode; }
+    public int getStatusCode() {
+        return statusCode;
+    }
 
     @JsonProperty
-    public String getDefaultUrl() { return defaultUrl; }
-
-    @JsonProperty
-    @NotEmpty
-    public String mongohost = "localhost";
-
-    @JsonProperty
-    @Min(1)
-    @Max(65535)
-    public int mongoport = 27017;
-
-    @JsonProperty
-    @NotEmpty
-    public String mongodb = "mydb";
-}
+    public String getDefaultUrl() {
+        return defaultUrl;
+    }
+};

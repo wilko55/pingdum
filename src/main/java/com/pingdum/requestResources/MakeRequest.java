@@ -15,9 +15,12 @@ public class MakeRequest {
     public Status getStatus() throws IOException {
 
          Status status = new Status(httpRequestService.makeRequest());
-//         status.setSiteId("Google");
 
-        return new Status(httpRequestService.makeRequest());
+        // check db to get api name from siteId
+         status.setSiteId(2);
+        status.setApiName("google.com");
+
+        return status;
     }
 }
 
