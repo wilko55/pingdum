@@ -1,4 +1,5 @@
 package com.pingdum.app;
+import com.pingdum.models.Status;
 import com.pingdum.requestResources.HttpRequestService;
 import com.pingdum.requestResources.MakeRequest;
 import com.pingdum.resources.PingdumResource;
@@ -9,9 +10,7 @@ import io.dropwizard.setup.Environment;
 
 import java.net.UnknownHostException;
 import java.sql.SQLException;
-import com.pingdum.models.Status;
-import com.pingdum.database.HibernateUtil;
-import org.hibernate.Session;
+
 public class PingdumApp extends Application<PingdumConfiguration> {
     public static void main(String[] args) throws Exception {
         new PingdumApp().run(args);

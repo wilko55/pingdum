@@ -11,12 +11,29 @@ import java.util.Date;
 public class Status {
 
     @Id
-    private ObjectId id;
+    private int id;
 
     @JsonProperty
     private int status;
     private int siteId;
     private String apiName;
+
+
+    public Status() {
+    }
+
+    public Status(int status, String apiName) {
+        this.status = status;
+        this.apiName = apiName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getStatus() {
         return status;
