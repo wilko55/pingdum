@@ -27,19 +27,13 @@ public class MakeRequest {
         status.setSiteId(2);
         status.setApiName("google.com");
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        //start transaction
-        session.beginTransaction();
-        //Save the Model object
-        session.save(status);
-        //Commit transaction
-        session.getTransaction().commit();
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
 
-        //terminate session factory, otherwise program won't end
-        HibernateUtil.getSessionFactory().close();
+            int id = (Integer) session.save(status);
+            session.getTransaction().commit();
 
-
-
+            System.out.println(id);
         return status;
     }
 }
