@@ -1,10 +1,10 @@
 package com.pingdum.database;
 
-import com.pingdum.models.HttpCode;
+import com.pingdum.models.Status;
 
 import java.util.List;
 
-public interface HttpCodeDao {
-    public List<HttpCode> getAllHttpCodes();
-    public HttpCode getCodesById(int siteId);
+public interface StatusDao {
+    public List<Status> getAllHttpCodes();
+    public Status getCodesById(int siteId);
 }

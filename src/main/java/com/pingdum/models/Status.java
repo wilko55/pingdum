@@ -22,10 +22,9 @@ public class Status {
     public Status() {
     }
 
-    public Status(int status, String apiName) {
-        this.status = status;
-        this.apiName = apiName;
-    }
+//    public Status(int status) {
+//        this.status = status;
+//    }
 
     public int getId() {
         return id;
@@ -38,6 +37,9 @@ public class Status {
     public int getStatus() {
         return status;
     }
+
+//    public void setTimeStamp();
+//    public String getTimeStamp(String timeStamp) { this.timeStamp = timeStamp; }
 
     public void setStatus(int status) {
         this.status = status;

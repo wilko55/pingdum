@@ -24,25 +24,7 @@ pingdumApp.controller('MainController', function($scope, $http) {
             // log error
         });
 });
-    //$scope.statusData= function () {
-    //    $http({
-    //        url: 'localhost:8080/api/',
-    //        method: 'GET',
-    //        params: {
-    //            status: $scope.status,
-    //            siteId: $scope.siteId
-    //        }
-    //    }).success(function (data) {
-    //        $scope.status = data;
-    //    });
 
-        //$scope.statusData= [
-        //    {id:1,api:'Google',status:'404'},
-        //    {id:2,api:'Purple Booth',status:'500'},
-        //    {id:3,api:'Life Event Verification',status:'200'}
-        //];
-    //}
-//});
 
 pingdumApp.controller('StatusController', ['$scope', '$routeParams',
     function($scope, $routeParams) {

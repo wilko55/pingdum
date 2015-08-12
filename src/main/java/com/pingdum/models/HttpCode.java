@@ -7,29 +7,38 @@ public class HttpCode
     private int httpCode;
     private String timeStamp;
 
-    public SampleModel( long id, String name, String data ) {
+    public HttpCode( long id, int siteId, int httpCode, String timeStamp ) {
         this.id = id;
-        this.name = name;
-        this.data = data;
+        this.siteId = siteId;
+        this.httpCode = httpCode;
+        this.timeStamp = timeStamp;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public int getSiteId() {
+        return siteId;
     }
 
-    public String getData() {
-        return data;
+    public int getHttpCode() {
+        return httpCode;
     }
 
-    public void setName( String name ) {
-        this.name = name;
+    public String getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setData( String data ) {
-        this.data = data;
+    public void setSiteId( int siteId ) {
+        this.siteId = siteId;
+    }
+
+    public void getHttpCode( int httpCode ) {
+        this.httpCode = httpCode;
+    }
+
+    public void getTimeStamp( String timeStamp ) {
+        this.timeStamp = timeStamp;
     }
 }

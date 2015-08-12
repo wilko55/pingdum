@@ -1,7 +1,7 @@
 package com.pingdum.app;
-import com.pingdum.models.Status;
 import com.pingdum.requestResources.HttpRequestService;
 import com.pingdum.requestResources.MakeRequest;
+import com.pingdum.resources.GetStatuses;
 import com.pingdum.resources.PingdumResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
@@ -29,7 +29,9 @@ public class PingdumApp extends Application<PingdumConfiguration> {
 
         MakeRequest makeRequest = new MakeRequest(httpRequestService);
         PingdumResource pingdumResource = new PingdumResource(makeRequest);
+        GetStatuses getStatus = new GetStatuses();
         environment.jersey().register(pingdumResource);
+        environment.jersey().register(getStatus);
 
     }
 }

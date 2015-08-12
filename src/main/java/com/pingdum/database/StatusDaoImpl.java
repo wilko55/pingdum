@@ -1,26 +1,26 @@
 package com.pingdum.database;
 
-import com.pingdum.models.HttpCode;
+import com.pingdum.models.Status;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpCodeDaoImpl implements HttpCodeDao {
+public class StatusDaoImpl implements StatusDao {
 
     //list is working as a database
-    List<HttpCode> httpCodes;
+    List<Status> statuses;
 
-    public HttpCodeDaoImpl() {
-        httpCodes = new ArrayList<HttpCode>();
+    public StatusDaoImpl() {
+        statuses = new ArrayList<Status>();
     }
 
     @Override
-    public List<HttpCode> getAllHttpCodes() {
-        return httpCodes;
+    public List<Status> getAllHttpCodes() {
+        return statuses;
     }
 
     @Override
-    public HttpCode getCodesById(int siteId) {
-        return httpCodes.get(siteId);
+    public Status getCodesById(int siteId) {
+        return statuses.get(siteId);
     }
 }

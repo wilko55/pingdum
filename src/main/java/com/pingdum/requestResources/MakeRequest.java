@@ -16,16 +16,10 @@ public class MakeRequest {
 
     public Status getStatus() throws IOException {
 
-
-        // check db to get api name from siteId
-
-
-        System.out.println("Maven + Hibernate + MySQL");
-
         Status status = new Status(httpRequestService.makeRequest());
 
-        status.setSiteId(2);
-        status.setApiName("google.com");
+            status.setSiteId(2);
+//            status.setApiName("Google");
 
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
