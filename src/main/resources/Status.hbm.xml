@@ -13,8 +13,6 @@
             </property>
             <property name="status" column="httpCode" type="int">
             </property>
-            <!--<property name="timeStamp" column="timeStamp" type="time">-->
-            <!--</property>-->
         </class>
 
 </hibernate-mapping>

@@ -34,15 +34,6 @@ public class GetStatuses {
         return results;
     }
 
-
-//@Path("/statuses/{id}")
-//@GET
-//@Timed
-//@UnitOfWork
-//public Person findPerson(@PathParam("id") LongParam id) {
-//    return dao.findById(id.get());
-//}
-
 }
 
 
