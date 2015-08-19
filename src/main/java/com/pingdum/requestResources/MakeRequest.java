@@ -19,7 +19,7 @@ public class MakeRequest {
         Status status = new Status(httpRequestService.makeRequest());
 
             status.setSiteId(2);
-//            status.setApiName("Google");
+            status.setApiName("Test api");
 
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
