@@ -7,7 +7,7 @@
 <session-factory>
     <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password"/>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/pingdumDB</property>
     <property name="hibernate.connection.username">pingdum</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -16,6 +16,7 @@
     <property name="hibernate.connection.pool_size">1</property>
     <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="Status.hbm.xml"></mapping>
+    <mapping resource="Status.hbm.xml"/>
+    <mapping resource="Sites.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

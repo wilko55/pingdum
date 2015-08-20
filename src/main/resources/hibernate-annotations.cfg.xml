@@ -15,5 +15,6 @@
 
         <!-- Mapping with model class containing annotations -->
         <mapping class="com.pingdum.models.Status"/>
+        <mapping class="com.pingdum.models.Sites"/>
     </session-factory>
 </hibernate-configuration>
