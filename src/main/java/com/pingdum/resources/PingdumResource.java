@@ -24,8 +24,8 @@ public class PingdumResource {
     }
 
     @GET
-    public List test() throws IOException {
-        return makeRequest.getUrls();
+    public Status test() throws IOException {
+        return makeRequest.getStatus();
     }
 
 }

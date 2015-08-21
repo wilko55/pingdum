@@ -21,6 +21,8 @@ public class MakeRequest {
         this.httpRequestService = httpRequestService;
     }
 
+
+
     public List getUrls() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();

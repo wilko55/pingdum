@@ -1,3 +1,2 @@
-defaultUrl: http://flappy.purplebooth.co.uk/flappy
 server:
   rootPath: '/api/*'
