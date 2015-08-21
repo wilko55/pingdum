@@ -1,20 +1,23 @@
 package com.pingdum.app;
-import com.mongodb.*;
-import com.pingdum.mongo.MongoHealthCheck;
-import com.pingdum.mongo.MongoManaged;
-import com.pingdum.requestResources.MakeRequest;
 import com.pingdum.requestResources.HttpRequestService;
+import com.pingdum.requestResources.MakeRequest;
+import com.pingdum.resources.ApiList;
+import com.pingdum.resources.GetStatuses;
 import com.pingdum.resources.PingdumResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
-import io.dropwizard.assets.AssetsBundle;
+
 import java.net.UnknownHostException;
+import java.sql.SQLException;
 
 public class PingdumApp extends Application<PingdumConfiguration> {
     public static void main(String[] args) throws Exception {
+        String urlArray;
+        urlArray = "http://www.google.com";
+        HttpRequestService httpRequestService = new HttpRequestService(urlArray);
+        new MakeRequest(httpRequestService).getUrls();
         new PingdumApp().run(args);
     }
 
@@ -23,31 +26,19 @@ public class PingdumApp extends Application<PingdumConfiguration> {
         pingdumConfigurationBootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
-
     @Override
-    public void run(PingdumConfiguration config, Environment environment) throws UnknownHostException {
+    public void run(PingdumConfiguration config, Environment environment) throws UnknownHostException, SQLException {
+
         String defaultUrl = config.getDefaultUrl();
         HttpRequestService httpRequestService = new HttpRequestService(defaultUrl);
-        Mongo mongo = new MongoClient(config.mongohost, config.mongoport);
-        Morphia morphia = new Morphia();
 
-        // mongo collection takes name of defaultUrl
-        DB db = new DB(mongo, "google");
-
-        MakeRequest makeRequest = new MakeRequest(httpRequestService, morphia, db);
+        MakeRequest makeRequest = new MakeRequest(httpRequestService);
         PingdumResource pingdumResource = new PingdumResource(makeRequest);
-//        environment.jersey().setUrlPattern("/*");
+        GetStatuses getStatus = new GetStatuses();
+        ApiList apiList = new ApiList();
         environment.jersey().register(pingdumResource);
-
-        // tidy up
-        Datastore datastore = morphia.createDatastore((MongoClient) mongo, "google");
-        MongoManaged mongoManaged = new MongoManaged(mongo);
-        environment.lifecycle().manage(mongoManaged);
-        morphia.mapPackage("com.pingdum.models.Status");
-
-        environment.healthChecks().register("mongo", new MongoHealthCheck(mongo));
-
-        datastore.ensureIndexes();
+        environment.jersey().register(getStatus);
+        environment.jersey().register(apiList);
 
     }
 }

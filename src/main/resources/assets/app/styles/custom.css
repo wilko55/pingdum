@@ -1,11 +1,29 @@
-._200 {
+.codeBox {
+
+}
+
+/*._200 {*/
+    /*background-color: #8CFFA2;*/
+/*}*/
+
+/*._500 {*/
+    /*background-color: #ff9290;*/
+/*}*/
+
+.statusBox {
+    border: solid 1px #D0D1E3;
+    border-radius: 10px;
+    background-color: #ABCDE3;
+}
+
+div[class^="_4"], div[class*=" _4"] {
+    background-color:#FBFF9A
+}
+
+div[class^="_2"], div[class*=" _2"] {
     background-color: #8CFFA2;
 }
 
-._500 {
+div[class^="_5"], div[class*=" _5"] {
     background-color: #ff9290;
-}
-
-._404 {
-    background-color: #FBFF9A;
 }

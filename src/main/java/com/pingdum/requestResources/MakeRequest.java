@@ -1,37 +1,50 @@
 package com.pingdum.requestResources;
-import com.mongodb.DB;
-import com.mongodb.DBObject;
+import com.pingdum.database.HibernateUtil;
+import com.pingdum.models.Sites;
 import com.pingdum.models.Status;
-import org.mongodb.morphia.Morphia;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MakeRequest {
 
     private final HttpRequestService httpRequestService;
 
-    public MakeRequest(HttpRequestService httpRequestService, Morphia morphia, DB db) {
+    public MakeRequest(HttpRequestService httpRequestService) {
 
         this.httpRequestService = httpRequestService;
-        this.morphia = morphia;
-        this.db = db;
     }
 
-    private final Morphia morphia;
-    private final DB db;
+    public List getUrls() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx=session.beginTransaction();
+
+        Criteria cr = session.createCriteria(Sites.class);
+        cr.setProjection(Projections.property("url"));
+        List results = cr.list();
+        System.out.println(results);
+        tx.commit();
+        return results;
+    }
 
     public Status getStatus() throws IOException {
 
-        // create new status object from makeRequest
-         Status status = new Status(httpRequestService.makeRequest());
+        Status status = new Status();
 
-        // map the status model to a Mongo DBObject
-        DBObject statusDBObject = morphia.toDBObject(status);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
-        // save to db
-        db.getCollection("status").save(statusDBObject);
+        int id = (Integer) session.save(status);
+        session.getTransaction().commit();
 
-        return new Status(httpRequestService.makeRequest());
+        System.out.println(id);
+        return status;
     }
 }
 

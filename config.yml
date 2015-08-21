@@ -1,3 +1,3 @@
-defaultUrl: http://www.google.com
+defaultUrl: http://flappy.purplebooth.co.uk/flappy
 server:
   rootPath: '/api/*'
