@@ -1,15 +1,17 @@
 package com.pingdum.resources;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-
-import com.mongodb.DB;
-import com.mongodb.Mongo;
+import com.codahale.metrics.annotation.Timed;
 import com.pingdum.models.Status;
 import com.pingdum.requestResources.MakeRequest;
-import org.mongodb.morphia.Morphia;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.List;
 
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
@@ -22,16 +24,9 @@ public class PingdumResource {
     }
 
     @GET
-    public Status test() throws IOException {
-        return makeRequest.getStatus();
+    public List test() throws IOException {
+        return makeRequest.getUrls();
     }
-
-//    @GET
-//    @Path("/mongo")
-//    @Produces("application/json")
-//    public Status findAll(@PathParam("status") String status) {
-//        return db.findAll(Status);
-//    }
 
 }
 
