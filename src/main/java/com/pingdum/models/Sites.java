@@ -46,7 +46,6 @@ public class Sites {
 
     public int getLastStatus() throws IOException {
 
-        System.out.println("url: " + url);
         lastStatus = new HttpRequestService(url).makeRequest();
 
         return lastStatus;

@@ -2,6 +2,8 @@
     <h2>Test api status info</h2>
 </div>
 </br>
+
+</br>
 <table class="table">
     <tr>
     <th>Timestamp</th>
@@ -9,9 +11,9 @@
     </tr>
     <tbody>
     <tr ng-repeat="data in weekData">
-        <td>{{ data.time}}</td>
-        <td>{{ data.httpCode }}</td>
+        <td>{{ data.timeStamp | date:'medium'}}</td>
+        <td>{{ data.status }}</td>
     </tr>
-    {{ weekDate }}
+
     </tbody>
 </table>

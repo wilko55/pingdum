@@ -26,13 +26,14 @@ pingdumApp.controller('MainController', function($scope, $http) {
 });
 
 
-pingdumApp.controller('StatusController',
-    function($scope, $http) {
-         $http.get('api/getCodes/2').
+pingdumApp.controller('StatusController', ['$scope', '$http', '$routeParams',
+    function($scope, $http, $routeParams) {
+            $scope.id = $routeParams.api;
+         $http.get('api/getCodes/' + $routeParams.api).
                 success(function (data, status, headers, config) {
                     $scope.weekData = data;
                 }).
                 error(function (data, status, headers, config) {
                     // log error
                 });
-    });
+    }]);

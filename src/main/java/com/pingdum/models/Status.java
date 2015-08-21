@@ -16,41 +16,28 @@ public class Status {
     @JsonProperty
     private int status;
     private int siteId;
-    private String apiName;
-
+    private Date timeStamp;
 
     public Status() {
+
     }
 
-//    public Status(int status) {
-//        this.status = status;
-//    }
 
-    public int getId() {
-        return id;
+    public Date getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public int getStatus() {
         return status;
     }
 
-//    public void setTimeStamp();
-//    public String getTimeStamp(String timeStamp) { this.timeStamp = timeStamp; }
-
     public void setStatus(int status) {
         this.status = status;
     }
-
-    public Status(int status){
-        this.status = status;
-    }
-
-    public String getApiName() { return apiName; }
-    public void setApiName(String apiName) { this.apiName = apiName; }
 
     public int getSiteId() {
         return siteId;
@@ -58,6 +45,14 @@ public class Status {
 
     public void setSiteId(int siteId) {
         this.siteId = siteId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

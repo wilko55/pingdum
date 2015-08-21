@@ -14,6 +14,10 @@ import java.sql.SQLException;
 
 public class PingdumApp extends Application<PingdumConfiguration> {
     public static void main(String[] args) throws Exception {
+        String urlArray;
+        urlArray = "http://www.google.com";
+        HttpRequestService httpRequestService = new HttpRequestService(urlArray);
+        new MakeRequest(httpRequestService).getUrls();
         new PingdumApp().run(args);
     }
 

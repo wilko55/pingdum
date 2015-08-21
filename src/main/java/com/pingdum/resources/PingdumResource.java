@@ -11,6 +11,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.List;
 
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
@@ -23,8 +24,8 @@ public class PingdumResource {
     }
 
     @GET
-    public Status test() throws IOException {
-        return makeRequest.getStatus();
+    public List test() throws IOException {
+        return makeRequest.getUrls();
     }
 
 }
